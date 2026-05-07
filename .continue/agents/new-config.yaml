@@ -1,16 +1,1 @@
-name: Local Config
-version: 1.0.0
-schema: v1
-models:
-  - name: "Baidu Qianfan: CoBuddy (free)"
-    provider: openrouter
-    model: baidu/cobuddy:free
-    apiKey: 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
-  - name: "Qwen: Qwen3.6 Plus"
-    provider: openrouter
-    model: qwen/qwen3.6-plus
-    apiKey: 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
-  - name: "NVIDIA: Nemotron 3 Super (free)"
-    provider: openrouter
-    model: nvidia/nemotron-3-super-120b-a12b:free
-    apiKey: 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
+
