@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Documentation - InApp Inventory Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="./assets/images/favicon_io/site.webmanifest">
+</head>
+
+<body>
+    <div id="loader-wrapper">
+        <div class="loader-content">
+            <span class="logo-text">Estrave</span>
+            <i class="ti ti-loader-2 animate-spin"></i>
+        </div>
+    </div>
+    <div id="overlay" class="overlay"></div>
+    <!-- TOPBAR -->
+    <nav id="topbar" class="navbar bg-white border-bottom fixed-top topbar px-3">
+        <button id="toggleBtn" class="d-none d-lg-inline-flex btn btn-light btn-icon btn-sm ">
+            <i class="ti ti-layout-sidebar-left-expand"></i>
+        </button>
+
+        <!-- MOBILE -->
+        <button id="mobileBtn" class="btn btn-light btn-icon btn-sm d-lg-none me-2">
+            <i class="ti ti-layout-sidebar-left-expand"></i>
+        </button>
+        <div>
+            <!-- Navbar nav -->
+            <ul class="list-unstyled d-flex align-items-center mb-0 gap-1">
+                <!-- Pages link -->
+
+                <!-- Bell icon -->
+                <li>
+                    <a class="position-relative btn-icon btn-sm btn-light btn rounded-circle" data-bs-toggle="dropdown"
+                        aria-expanded="false" href="#" role="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                            class="icon icon-tabler icons-tabler-outline icon-tabler-bell">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path
+                                d="M10 5a2 2 0 1 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" />
+                            <path d="M9 17v1a3 3 0 0 0 6 0v-1" />
+                        </svg>
+                        <span
+                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger mt-2 ms-n2">
+                            2
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end dropdown-menu-md p-0">
+                        <ul class="list-unstyled p-0 m-0">
+                            <li class="p-3 border-bottom ">
+                                <div class="d-flex gap-3">
+                                    <img src="./assets/images/avatar/avatar-1.jpg" alt=""
+                                        class="avatar avatar-sm rounded-circle" />
+                                    <div class="flex-grow-1 small">
+                                        <p class="mb-0">New order received</p>
+                                        <p class="mb-1">Order #12345 has been placed</p>
+                                        <div class="text-secondary">5 minutes ago</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="p-3 border-bottom ">
+                                <div class="d-flex gap-3">
+                                    <img src="./assets/images/avatar/avatar-4.jpg" alt=""
+                                        class="avatar avatar-sm rounded-circle" />
+                                    <div class="flex-grow-1 small">
+                                        <p class="mb-0">New user registered</p>
+                                        <p class="mb-1">User @john_doe has signed up</p>
+                                        <div class="text-secondary">30 minutes ago</div>
+                                    </div>
+                            </li>
+
+                            <li class="p-3 border-bottom">
+                                <div class="d-flex gap-3">
+                                    <img src="./assets/images/avatar/avatar-2.jpg" alt=""
+                                        class="avatar avatar-sm rounded-circle" />
+                                    <div class="flex-grow-1 small">
+                                        <p class="mb-0">Payment confirmed</p>
+                                        <p class="mb-1">Payment of $299 has been received</p>
+                                        <div class="text-secondary">1 hour ago</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="px-4 py-3 text-center">
+                                <a href="#" class="text-primary ">View all notifications</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <!-- Dropdown -->
+                <li class="ms-3 dropdown">
+                    <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="./assets/images/avatar/avatar-1.jpg" alt="" class="avatar avatar-sm rounded-circle" />
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end p-0" style="min-width: 200px;">
+                        <div>
+                            <div class="d-flex gap-3 align-items-center border-dashed border-bottom px-3 py-3">
+                                <img src="./assets/images/avatar/avatar-1.jpg" alt=""
+                                    class="avatar avatar-md rounded-circle" />
+                                <div>
+                                    <h4 class="mb-0 small">Shrina Tesla</h4>
+                                    <p class="mb-0  small">@imshrina</p>
+                                </div>
+                            </div>
+                            <div class="p-3 d-flex flex-column gap-1 small lh-lg">
+                                <a href="index.html" class="">
+
+                                    <span>Home</span>
+                                </a>
+                                <a href="inbox.html" class="">
+
+                                    <span> Inbox</span>
+                                </a>
+                                <a href="chat.html" class="">
+
+                                    <span> Chat</span>
+                                </a>
+                                <a href="activity.html" class="">
+
+                                    <span> Activity</span>
+                                </a>
+                                <a href="setting.html" class="">
+
+                                    <span> Account Settings</span>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+    </nav>
+
+    <!-- SIDEBAR -->
+    <aside id="sidebar" class="sidebar">
+        <div class="logo-area">
+            <a href="index.html" class="d-inline-flex">
+                <img src="./assets/images/logo-icon.svg" alt="" width="24">
+                <span class="logo-text ms-2">
+                    <img src="./assets/images/logo.svg" alt="Estrave">
+                </span>
+            </a>
+        </div>
+
+        <ul class="nav flex-column">
+            <!-- Main Section -->
+            <li class="px-4 py-2"><small class="nav-text text-uppercase opacity-50">Main</small></li>
+
+            <li>
+                <a class="nav-link active" href="index.html">
+                    <i class="ti ti-smart-home"></i>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+            </li>
+
+            <!-- Management Section -->
+            <li class="px-4 pt-4 pb-2"><small class="nav-text text-uppercase opacity-50">Management</small></li>
+
+            <li>
+                <a class="nav-link" href="inventory.html">
+                    <i class="ti ti-package"></i>
+                    <span class="nav-text">Inventory</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="nav-link" href="command.html">
+                    <i class="ti ti-shopping-cart"></i>
+                    <span class="nav-text">Orders</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="nav-link" href="customers.html">
+                    <i class="ti ti-users"></i>
+                    <span class="nav-text">Customers</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="nav-link" href="suppliers.html">
+                    <i class="ti ti-truck-delivery"></i>
+                    <span class="nav-text">Suppliers</span>
+                </a>
+            </li>
+
+            <!-- Operations Section -->
+            <li class="px-4 pt-4 pb-2"><small class="nav-text text-uppercase opacity-50">Operations</small></li>
+
+            <li>
+                <a class="nav-link" href="create-product.html">
+                    <i class="ti ti-square-plus"></i>
+                    <span class="nav-text">Add Product</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="nav-link" href="reports.html">
+                    <i class="ti ti-chart-bar"></i>
+                    <span class="nav-text">Reports</span>
+                </a>
+            </li>
+
+            <!-- Account & System Section -->
+            <li class="px-4 pt-4 pb-2"><small class="nav-text text-uppercase opacity-50">Account</small></li>
+
+            <li>
+                <a class="nav-link" href="signin.html">
+                    <i class="ti ti-login"></i>
+                    <span class="nav-text">Log in</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="nav-link" href="signup.html">
+                    <i class="ti ti-user-plus"></i>
+                    <span class="nav-text">Sign up</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="nav-link" href="docs.html">
+                    <i class="ti ti-book"></i>
+                    <span class="nav-text">Docs</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="nav-link text-danger-hover" href="404-error.html">
+                    <i class="ti ti-exclamation-circle"></i>
+                    <span class="nav-text">404 Error</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+    <!-- MAIN CONTENT -->
+    <div class="content-wrapper">
+        <!-- Content -->
+
+        <div class="container-xxl flex-grow-1 container-p-y">
+            <h4 class="fw-bold py-3 mb-4">
+                <span class="text-muted fw-light">Account Settings / </span> Connections
+            </h4>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="nav nav-pills flex-column flex-md-row mb-3">
+                        <li class="nav-item">
+                            <a class="nav-link" href="setting.html"><i class="bx bx-user me-1"></i> Account</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="notifications.html"><i class="bx bx-bell me-1"></i>
+                                Notifications</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="javascript:void(0);"><i class="bx bx-link-alt me-1"></i>
+                                Connections</a>
+                        </li>
+                    </ul>
+                    <div class="row">
+                        <div class="col-md-6 col-12 mb-md-0 mb-4">
+                            <div class="card">
+                                <h5 class="card-header">Connected Accounts</h5>
+                                <div class="card-body">
+                                    <p>Display content from your connected accounts on your site</p>
+                                    <!-- Connections -->
+                                    <div class="d-flex mb-3">
+                                        <div class="flex-shrink-0">
+                                            <img src="./assets/img/icons/brands/google.png" alt="google" class="me-3"
+                                                height="30" />
+                                        </div>
+                                        <div class="flex-grow-1 row">
+                                            <div class="col-9 mb-sm-0 mb-2">
+                                                <h6 class="mb-0">Google</h6>
+                                                <small class="text-muted">Calendar and contacts</small>
+                                            </div>
+                                            <div class="col-3 text-end">
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input float-end" type="checkbox"
+                                                        role="switch" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex mb-3">
+                                        <div class="flex-shrink-0">
+                                            <img src="../assets/img/icons/brands/slack.png" alt="slack" class="me-3"
+                                                height="30" />
+                                        </div>
+                                        <div class="flex-grow-1 row">
+                                            <div class="col-9 mb-sm-0 mb-2">
+                                                <h6 class="mb-0">Slack</h6>
+                                                <small class="text-muted">Communication</small>
+                                            </div>
+                                            <div class="col-3 text-end">
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input float-end" type="checkbox"
+                                                        role="switch" checked />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex mb-3">
+                                        <div class="flex-shrink-0">
+                                            <img src="../assets/img/icons/brands/github.png" alt="github" class="me-3"
+                                                height="30" />
+                                        </div>
+                                        <div class="flex-grow-1 row">
+                                            <div class="col-9 mb-sm-0 mb-2">
+                                                <h6 class="mb-0">Github</h6>
+                                                <small class="text-muted">Manage your Git repositories</small>
+                                            </div>
+                                            <div class="col-3 text-end">
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input float-end" type="checkbox"
+                                                        role="switch" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex mb-3">
+                                        <div class="flex-shrink-0">
+                                            <img src="../assets/img/icons/brands/mailchimp.png" alt="mailchimp"
+                                                class="me-3" height="30" />
+                                        </div>
+                                        <div class="flex-grow-1 row">
+                                            <div class="col-9 mb-sm-0 mb-2">
+                                                <h6 class="mb-0">Mailchimp</h6>
+                                                <small class="text-muted">Email marketing service</small>
+                                            </div>
+                                            <div class="col-3 text-end">
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input float-end" type="checkbox"
+                                                        role="switch" checked />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="flex-shrink-0">
+                                            <img src="../assets/img/icons/brands/asana.png" alt="asana" class="me-3"
+                                                height="30" />
+                                        </div>
+                                        <div class="flex-grow-1 row">
+                                            <div class="col-9 mb-sm-0 mb-2">
+                                                <h6 class="mb-0">Asana</h6>
+                                                <small class="text-muted">Communication</small>
+                                            </div>
+                                            <div class="col-3 text-end">
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input float-end" type="checkbox"
+                                                        role="switch" checked />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /Connections -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <div class="card">
+                                <h5 class="card-header">Social Accounts</h5>
+                                <div class="card-body">
+                                    <p>Display content from social accounts on your site</p>
+                                    <!-- Social Accounts -->
+                                    <div class="d-flex mb-3">
+                                        <div class="flex-shrink-0">
+                                            <img src="../assets/img/icons/brands/facebook.png" alt="facebook"
+                                                class="me-3" height="30" />
+                                        </div>
+                                        <div class="flex-grow-1 row">
+                                            <div class="col-8 col-sm-7 mb-sm-0 mb-2">
+                                                <h6 class="mb-0">Facebook</h6>
+                                                <small class="text-muted">Not Connected</small>
+                                            </div>
+                                            <div class="col-4 col-sm-5 text-end">
+                                                <button type="button" class="btn btn-icon btn-outline-secondary">
+                                                    <i class="ti ti-link"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex mb-3">
+                                        <div class="flex-shrink-0">
+                                            <img src="../assets/img/icons/brands/twitter.png" alt="twitter" class="me-3"
+                                                height="30" />
+                                        </div>
+                                        <div class="flex-grow-1 row">
+                                            <div class="col-8 col-sm-7 mb-sm-0 mb-2">
+                                                <h6 class="mb-0">Twitter</h6>
+                                                <a href="https://twitter.com/Theme_Selection"
+                                                    target="_blank">@ThemeSelection</a>
+                                            </div>
+                                            <div class="col-4 col-sm-5 text-end">
+                                                <button type="button" class="btn btn-icon btn-outline-danger">
+                                                    <i class="ti ti-trash"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex mb-3">
+                                        <div class="flex-shrink-0">
+                                            <img src="../assets/img/icons/brands/instagram.png" alt="instagram"
+                                                class="me-3" height="30" />
+                                        </div>
+                                        <div class="flex-grow-1 row">
+                                            <div class="col-8 col-sm-7 mb-sm-0 mb-2">
+                                                <h6 class="mb-0">instagram</h6>
+                                                <a href="https://www.instagram.com/themeselection/"
+                                                    target="_blank">@ThemeSelection</a>
+                                            </div>
+                                            <div class="col-4 col-sm-5 text-end">
+                                                <button type="button" class="btn btn-icon btn-outline-danger">
+                                                    <i class="ti ti-trash"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex mb-3">
+                                        <div class="flex-shrink-0">
+                                            <img src="../assets/img/icons/brands/dribbble.png" alt="dribbble"
+                                                class="me-3" height="30" />
+                                        </div>
+                                        <div class="flex-grow-1 row">
+                                            <div class="col-8 col-sm-7 mb-sm-0 mb-2">
+                                                <h6 class="mb-0">Dribbble</h6>
+                                                <small class="text-muted">Not Connected</small>
+                                            </div>
+                                            <div class="col-4 col-sm-5 text-end">
+                                                <button type="button" class="btn btn-icon btn-outline-secondary">
+                                                    <i class="ti ti-link"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <div class="flex-shrink-0">
+                                            <img src="../assets/img/icons/brands/behance.png" alt="behance" class="me-3"
+                                                height="30" />
+                                        </div>
+                                        <div class="flex-grow-1 row">
+                                            <div class="col-8 col-sm-7 mb-sm-0 mb-2">
+                                                <h6 class="mb-0">Behance</h6>
+                                                <small class="text-muted">Not Connected</small>
+                                            </div>
+                                            <div class="col-4 col-sm-5 text-end">
+                                                <button type="button" class="btn btn-icon btn-outline-secondary">
+                                                    <i class="ti ti-link"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- /Social Accounts -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- / Content -->
+        <div class="row">
+            <div class="col-12">
+                <footer class="text-center py-2 mt-6 text-secondary ">
+                    <p class="mb-0">Copyright © 2026 InApp Inventory Dashboard. Developed by <a
+                            href="https://codescandy.com/" target="_blank" class="text-primary">CodesCandy</a> •
+                        Distributed by <a href="https://themewagon.com/" target="_blank"
+                            class="text-primary">ThemeWagon</a> </p>
+                </footer>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Bootstrap JS -->
+    <script src="./assets/js/main.js" type="module"></script>
+
+
+
+</body>
+
+</html>

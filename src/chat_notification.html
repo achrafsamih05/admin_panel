@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Notifications & Chat - InApp Inventory Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/images/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="./assets/images/favicon_io/site.webmanifest">
+
+</head>
+
+<body>
+    <div id="loader-wrapper">
+        <div class="loader-content">
+            <span class="logo-text">Estrave</span>
+            <i class="ti ti-loader-2 animate-spin"></i>
+        </div>
+    </div>
+    <div id="overlay" class="overlay"></div>
+    <!-- TOPBAR -->
+    <nav id="topbar" class="navbar bg-white border-bottom fixed-top topbar px-3">
+        <button id="toggleBtn" class="d-none d-lg-inline-flex btn btn-light btn-icon btn-sm">
+            <i class="ti ti-layout-sidebar-left-expand"></i>
+        </button>
+
+        <!-- MOBILE -->
+        <button id="mobileBtn" class="btn btn-light btn-icon btn-sm d-lg-none me-2">
+            <i class="ti ti-layout-sidebar-left-expand"></i>
+        </button>
+        <div>
+            <!-- Navbar nav -->
+            <ul class="list-unstyled d-flex align-items-center mb-0 gap-1">
+                <!-- Bell icon -->
+                <li>
+                    <a class="position-relative btn-icon btn-sm btn-light btn rounded-circle" data-bs-toggle="dropdown"
+                        aria-expanded="false" href="#" role="button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                            class="icon icon-tabler icons-tabler-outline icon-tabler-bell">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path
+                                d="M10 5a2 2 0 1 1 4 0a7 7 0 0 1 4 6v3a4 4 0 0 0 2 3h-16a4 4 0 0 0 2 -3v-3a7 7 0 0 1 4 -6" />
+                            <path d="M9 17v1a3 3 0 0 0 6 0v-1" />
+                        </svg>
+                        <span
+                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger mt-2 ms-n2">
+                            5
+                            <span class="visually-hidden">unread messages</span>
+                        </span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end dropdown-menu-md p-0">
+                        <ul class="list-unstyled p-0 m-0">
+                            <li class="p-3 border-bottom">
+                                <div class="d-flex gap-3">
+                                    <img src="./assets/images/avatar/avatar-1.jpg" alt=""
+                                        class="avatar avatar-sm rounded-circle" />
+                                    <div class="flex-grow-1 small">
+                                        <p class="mb-0">New order received</p>
+                                        <p class="mb-1">Order #12345 has been placed</p>
+                                        <div class="text-secondary">5 minutes ago</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="p-3 border-bottom">
+                                <div class="d-flex gap-3">
+                                    <img src="./assets/images/avatar/avatar-4.jpg" alt=""
+                                        class="avatar avatar-sm rounded-circle" />
+                                    <div class="flex-grow-1 small">
+                                        <p class="mb-0">New user registered</p>
+                                        <p class="mb-1">User @john_doe has signed up</p>
+                                        <div class="text-secondary">30 minutes ago</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="p-3 border-bottom">
+                                <div class="d-flex gap-3">
+                                    <img src="./assets/images/avatar/avatar-2.jpg" alt=""
+                                        class="avatar avatar-sm rounded-circle" />
+                                    <div class="flex-grow-1 small">
+                                        <p class="mb-0">Payment confirmed</p>
+                                        <p class="mb-1">Payment of $299 has been received</p>
+                                        <div class="text-secondary">1 hour ago</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="px-4 py-3 text-center">
+                                <a href="chat_notification.html" class="text-primary">View all notifications &
+                                    messages</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <!-- Dropdown -->
+                <li class="ms-3 dropdown">
+                    <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="./assets/images/avatar/avatar-1.jpg" alt="" class="avatar avatar-sm rounded-circle" />
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end p-0" style="min-width: 200px;">
+                        <div>
+                            <div class="d-flex gap-3 align-items-center border-dashed border-bottom px-3 py-3">
+                                <img src="./assets/images/avatar/avatar-1.jpg" alt=""
+                                    class="avatar avatar-md rounded-circle" />
+                                <div>
+                                    <h4 class="mb-0 small">Shrina Tesla</h4>
+                                    <p class="mb-0 small">@imshrina</p>
+                                </div>
+                            </div>
+                            <div class="p-3 d-flex flex-column gap-1 small lh-lg">
+                                <a href="index.html">
+                                    <span>Home</span>
+                                </a>
+                                <a href="inbox.html">
+                                    <span> Inbox</span>
+                                </a>
+                                <a href="chat_notification.html">
+                                    <span> Chat & Notifications</span>
+                                </a>
+                                <a href="activity.html">
+                                    <span> Activity</span>
+                                </a>
+                                <a href="setting.html">
+                                    <span> Account Settings</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- SIDEBAR -->
+    <aside id="sidebar" class="sidebar">
+        <div class="logo-area">
+            <a href="index.html" class="d-inline-flex">
+                <img src="./assets/images/logo-icon.svg" alt="" width="24">
+                <span class="logo-text ms-2">
+                    <img src="./assets/images/logo.svg" alt="Estrave">
+                </span>
+            </a>
+        </div>
+
+        <ul class="nav flex-column">
+            <!-- Main Section -->
+            <li class="px-4 py-2"><small class="nav-text text-uppercase opacity-50">Main</small></li>
+
+            <li>
+                <a class="nav-link" href="index.html">
+                    <i class="ti ti-smart-home"></i>
+                    <span class="nav-text">Dashboard</span>
+                </a>
+            </li>
+
+            <!-- Management Section -->
+            <li class="px-4 pt-4 pb-2"><small class="nav-text text-uppercase opacity-50">Management</small></li>
+
+            <li>
+                <a class="nav-link" href="inventory.html">
+                    <i class="ti ti-package"></i>
+                    <span class="nav-text">Inventory</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="nav-link" href="command.html">
+                    <i class="ti ti-shopping-cart"></i>
+                    <span class="nav-text">Orders</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="nav-link" href="customers.html">
+                    <i class="ti ti-users"></i>
+                    <span class="nav-text">Customers</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="nav-link" href="suppliers.html">
+                    <i class="ti ti-truck-delivery"></i>
+                    <span class="nav-text">Suppliers</span>
+                </a>
+            </li>
+
+            <!-- Operations Section -->
+            <li class="px-4 pt-4 pb-2"><small class="nav-text text-uppercase opacity-50">Operations</small></li>
+
+            <li>
+                <a class="nav-link" href="create-product.html">
+                    <i class="ti ti-square-plus"></i>
+                    <span class="nav-text">Add Product</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="nav-link" href="reports.html">
+                    <i class="ti ti-chart-bar"></i>
+                    <span class="nav-text">Reports</span>
+                </a>
+            </li>
+
+            <!-- Account & System Section -->
+            <li class="px-4 pt-4 pb-2"><small class="nav-text text-uppercase opacity-50">Account</small></li>
+
+            <li>
+                <a class="nav-link" href="signin.html">
+                    <i class="ti ti-login"></i>
+                    <span class="nav-text">Log in</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="nav-link" href="signup.html">
+                    <i class="ti ti-user-plus"></i>
+                    <span class="nav-text">Sign up</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="nav-link" href="docs.html">
+                    <i class="ti ti-book"></i>
+                    <span class="nav-text">Docs</span>
+                </a>
+            </li>
+
+            <li>
+                <a class="nav-link text-danger-hover" href="404-error.html">
+                    <i class="ti ti-exclamation-circle"></i>
+                    <span class="nav-text">404 Error</span>
+                </a>
+            </li>
+        </ul>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main id="content" class="content py-10">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="mb-6">
+                        <h1 class="fs-3 mb-1">Notifications & Chat</h1>
+                        <p>Your messages and notifications in one place…</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabs -->
+            <ul class="nav nav-tabs mb-4" id="chatNotifTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="notif-tab" data-bs-toggle="tab" data-bs-target="#notif-panel"
+                        type="button">
+                        <i class="ti ti-bell me-1"></i> Notifications
+                        <span class="badge bg-danger rounded-pill ms-1">5</span>
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="chat-tab" data-bs-toggle="tab" data-bs-target="#chat-panel"
+                        type="button">
+                        <i class="ti ti-message me-1"></i> Chat
+                    </button>
+                </li>
+            </ul>
+
+            <div class="tab-content" id="chatNotifTabContent">
+                <!-- NOTIFICATIONS PANEL -->
+                <div class="tab-pane fade show active" id="notif-panel" role="tabpanel">
+                    <div class="row g-3">
+                        <!-- Notification Cards -->
+                        <div class="col-lg-6 col-12">
+                            <div class="card h-100">
+                                <div
+                                    class="card-header bg-white d-flex justify-content-between align-items-center px-4 py-3">
+                                    <h4 class="mb-0 h5">New Notifications</h4>
+                                    <a href="#" class="small text-primary text-decoration-underline">Mark all as
+                                        read</a>
+                                </div>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item d-flex align-items-start gap-3 border-bottom">
+                                        <div class="icon-shape icon-md bg-primary bg-opacity-10 text-primary rounded-2">
+                                            <i class="ti ti-shopping-cart fs-4"></i>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <p class="mb-1 fw-semibold">New order received</p>
+                                            <p class="mb-1 small text-muted">Order #12345 has been placed by John Doe
+                                            </p>
+                                            <div class="d-flex gap-2 align-items-center small text-secondary">
+                                                <span>5 minutes ago</span>
+                                                <span>•</span>
+                                                <span
+                                                    class="badge bg-primary-subtle text-primary border border-primary">Order</span>
+                                            </div>
+                                        </div>
+                                        <span class="badge bg-primary rounded-pill">New</span>
+                                    </li>
+                                    <li class="list-group-item d-flex align-items-start gap-3 border-bottom">
+                                        <div class="icon-shape icon-md bg-success bg-opacity-10 text-success rounded-2">
+                                            <i class="ti ti-user-plus fs-4"></i>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <p class="mb-1 fw-semibold">New user registered</p>
+                                            <p class="mb-1 small text-muted">User @john_doe has signed up</p>
+                                            <div class="d-flex gap-2 align-items-center small text-secondary">
+                                                <span>30 minutes ago</span>
+                                                <span>•</span>
+                                                <span
+                                                    class="badge bg-success-subtle text-success border border-success">User</span>
+                                            </div>
+                                        </div>
+                                        <span class="badge bg-primary rounded-pill">New</span>
+                                    </li>
+                                    <li class="list-group-item d-flex align-items-start gap-3 border-bottom">
+                                        <div class="icon-shape icon-md bg-info bg-opacity-10 text-info rounded-2">
+                                            <i class="ti ti-cash fs-4"></i>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <p class="mb-1 fw-semibold">Payment confirmed</p>
+                                            <p class="mb-1 small text-muted">Payment of $299 has been received</p>
+                                            <div class="d-flex gap-2 align-items-center small text-secondary">
+                                                <span>1 hour ago</span>
+                                                <span>•</span>
+                                                <span
+                                                    class="badge bg-info-subtle text-info border border-info">Payment</span>
+                                            </div>
+                                        </div>
+                                        <span class="badge bg-primary rounded-pill">New</span>
+                                    </li>
+                                    <li class="list-group-item d-flex align-items-start gap-3 border-bottom">
+                                        <div class="icon-shape icon-md bg-warning bg-opacity-10 text-warning rounded-2">
+                                            <i class="ti ti-exclamation-triangle fs-4"></i>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <p class="mb-1 fw-semibold">Low stock alert</p>
+                                            <p class="mb-1 small text-muted">Wireless Headphones - only 6 units
+                                                remaining</p>
+                                            <div class="d-flex gap-2 align-items-center small text-secondary">
+                                                <span>2 hours ago</span>
+                                                <span>•</span>
+                                                <span
+                                                    class="badge bg-warning-subtle text-warning border border-warning">Stock</span>
+                                            </div>
+                                        </div>
+                                        <span class="badge bg-primary rounded-pill">New</span>
+                                    </li>
+                                    <li class="list-group-item d-flex align-items-start gap-3">
+                                        <div class="icon-shape icon-md bg-danger bg-opacity-10 text-danger rounded-2">
+                                            <i class="ti ti-times-circle fs-4"></i>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <p class="mb-1 fw-semibold">Order cancelled</p>
+                                            <p class="mb-1 small text-muted">Order #11999 has been cancelled by customer
+                                            </p>
+                                            <div class="d-flex gap-2 align-items-center small text-secondary">
+                                                <span>3 hours ago</span>
+                                                <span>•</span>
+                                                <span
+                                                    class="badge bg-danger-subtle text-danger border border-danger">Order</span>
+                                    <li class="list-group-item d-flex align-items-start gap-3">
+                                        <div
+                                            class="icon-shape icon-md bg-secondary bg-opacity-10 text-secondary rounded-2">
+                                            <i class="ti ti-settings fs-4"></i>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <p class="mb-1 fw-semibold">System Update</p>
+                                            <p class="mb-1 small text-muted">Server maintenance scheduled for tomorrow
+                                                at 02:00 AM</p>
+                                            <div class="d-flex gap-2 align-items-center small text-secondary">
+                                                <span>5 hours ago</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="card-footer bg-white text-center py-3">
+                                    <a href="#" class="btn btn-sm btn-light-primary">Load Older Notifications</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-12">
+                            <div class="card h-100 border-0 shadow-sm">
+                                <div class="card-body p-4 text-center">
+                                    <div class="mb-4">
+                                        <i class="ti ti-bell-ringing fs-1 text-primary opacity-25"></i>
+                                    </div>
+                                    <h4 class="mb-2">Manage Alerts</h4>
+                                    <p class="text-muted mb-4">Choose how you want to receive updates about your
+                                        inventory and orders.</p>
+                                    <div class="list-group list-group-flush text-start mb-4">
+                                        <div
+                                            class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                            <div>
+                                                <h6 class="mb-0">Email Notifications</h6>
+                                                <small class="text-muted">Receive daily summary of sales</small>
+                                            </div>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox" checked>
+                                            </div>
+                                        </div>
+                                        <div
+                                            class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                            <div>
+                                                <h6 class="mb-0">Push Notifications</h6>
+                                                <small class="text-muted">Instant alerts on browser</small>
+                                            </div>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" type="checkbox">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary w-100">Update Preferences</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="chat-panel" role="tabpanel">
+                    <div class="card border-0 shadow-sm overflow-hidden" style="height: 600px;">
+                        <div class="row g-0 h-100">
+                            <div class="col-lg-4 border-end h-100 bg-light bg-opacity-50">
+                                <div class="p-3 border-bottom bg-white">
+                                    <div class="input-group">
+                                        <span class="input-group-text bg-light border-0"><i
+                                                class="ti ti-search"></i></span>
+                                        <input type="text" class="form-control bg-light border-0 shadow-none"
+                                            placeholder="Search contacts...">
+                                    </div>
+                                </div>
+                                <div class="overflow-auto h-100" style="max-height: 520px;">
+                                    <div
+                                        class="p-3 d-flex align-items-center gap-3 border-bottom bg-white cursor-pointer hover-bg-light">
+                                        <div class="position-relative">
+                                            <img src="./assets/images/avatar/avatar-2.jpg"
+                                                class="avatar avatar-md rounded-circle" alt="">
+                                            <span
+                                                class="position-absolute bottom-0 end-0 p-1 bg-success border border-2 border-white rounded-circle"></span>
+                                        </div>
+                                        <div class="flex-grow-1">
+                                            <h6 class="mb-0">Meriem Chafai</h6>
+                                            <small class="text-muted text-truncate d-block"
+                                                style="max-width: 150px;">The order #1234 is ready...</small>
+                                        </div>
+                                        <small class="text-secondary">12:45</small>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-8 h-100 d-flex flex-column bg-white">
+                                <div class="p-3 border-bottom d-flex justify-content-between align-items-center">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <img src="./assets/images/avatar/avatar-2.jpg"
+                                            class="avatar avatar-sm rounded-circle" alt="">
+                                        <div>
+                                            <h6 class="mb-0">Meriem sarah</h6>
+                                            <small class="text-success">Online</small>
+                                        </div>
+                                    </div>
+                                    <div class="btn-group">
+                                        <button class="btn btn-sm btn-light btn-icon"><i
+                                                class="ti ti-phone"></i></button>
+                                        <button class="btn btn-sm btn-light btn-icon"><i
+                                                class="ti ti-video"></i></button>
+                                        <button class="btn btn-sm btn-light btn-icon"><i
+                                                class="ti ti-dots-vertical"></i></button>
+                                    </div>
+                                </div>
+
+                                <div class="flex-grow-1 overflow-auto p-4 bg-light bg-opacity-25" id="chatMessages">
+                                    <div class="d-flex flex-column align-items-start mb-4">
+                                        <div class="bg-white p-3 rounded-3 shadow-sm border" style="max-width: 75%;">
+                                            Hello Ashraf, can you check the status of the new delivery?
+                                        </div>
+                                        <small class="text-muted mt-1">12:40 PM</small>
+                                    </div>
+                                    <div class="d-flex flex-column align-items-end mb-4">
+                                        <div class="bg-primary text-white p-3 rounded-3 shadow-sm"
+                                            style="max-width: 75%;">
+                                            Sure Meriem, I am checking it right now in the inventory panel.
+                                        </div>
+                                        <small class="text-muted mt-1">12:42 PM</small>
+                                    </div>
+                                </div>
+
+                                <div class="p-3 border-top bg-white">
+                                    <form class="d-flex gap-2">
+                                        <button type="button" class="btn btn-light btn-icon"><i
+                                                class="ti ti-plus"></i></button>
+                                        <input type="text" class="form-control border-0 bg-light"
+                                            placeholder="Type your message...">
+                                        <button type="submit" class="btn btn-primary btn-icon"><i
+                                                class="ti ti-send"></i></button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer class="mt-10 pb-4">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <div class="col-md-6 text-center text-md-start">
+                            <p class="mb-0 text-secondary">© 2026 Estrave. All rights reserved.</p>
+                        </div>
+                        <div class="col-md-6 text-center text-md-end mt-2 mt-md-0">
+                            <ul class="list-inline mb-0 small text-secondary">
+                                <li class="list-inline-item"><a href="#" class="text-inherit">Privacy Policy</a></li>
+                                <li class="list-inline-item ms-3"><a href="#" class="text-inherit">Terms of Use</a></li>
+                                <li class="list-inline-item ms-3"><a href="#" class="text-inherit">Support</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </main>
+
+    <script src="./assets/js/main.js" type="module"></script>
+</body>
+
+</html>
