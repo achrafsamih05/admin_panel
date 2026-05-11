@@ -16,6 +16,10 @@
     &.loader-hidden {
         opacity: 0;
         visibility: hidden;
+        pointer-events: none;
+        // After the fade-out is done, take it out of the layout entirely so
+        // a stuck loader can never block clicks on the page behind it.
+        transition: opacity 0.3s ease, visibility 0s linear 0.3s;
     }
 
     .loader-content {
