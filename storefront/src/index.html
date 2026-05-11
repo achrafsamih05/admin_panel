@@ -20,9 +20,17 @@
           <span>Estrave</span>
         </a>
         <div class="d-flex align-items-center gap-2">
-          <a href="profile.html" class="btn btn-light btn-sm rounded-circle" title="Account"
-             style="width:36px;height:36px;padding:0;">
-            <i class="ti ti-user"></i>
+          <!-- Account button: inline SVG so it renders identically even if the
+               Tabler icon webfont hasn't loaded yet. -->
+          <a href="profile.html" class="account-btn" title="Account" aria-label="Account">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                 viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                 aria-hidden="true">
+              <circle cx="12" cy="8" r="4"></circle>
+              <path d="M4 21c0-4.418 3.582-8 8-8s8 3.582 8 8"></path>
+            </svg>
+            <span class="account-btn-label d-none d-sm-inline">Account</span>
           </a>
         </div>
       </div>

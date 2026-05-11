@@ -1,6 +1,7 @@
 // Home page controller: loads categories + products, wires search & filtering.
 import { listCategories, listProducts } from '../catalog.js';
 import { cart } from '../cart.js';
+import { toastError } from '../toast.js';
 
 const $  = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
@@ -103,6 +104,7 @@ async function reloadProducts() {
     renderProducts(rows);
   } catch (e) {
     console.error(e);
+    toastError(`Couldn't load products: ${e.message || 'connection error'}`);
     grid.innerHTML = `
       <div class="col-span-2 empty-state text-danger" style="grid-column: 1/-1;">
         <i class="ti ti-alert-triangle"></i>
@@ -125,6 +127,7 @@ async function init() {
     renderCategories(cats);
   } catch (e) {
     console.warn('[home] categories failed', e);
+    toastError(`Couldn't load categories: ${e.message || 'connection error'}`);
   }
 
   // Debounced search

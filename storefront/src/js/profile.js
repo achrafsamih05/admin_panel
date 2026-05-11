@@ -11,8 +11,9 @@ export async function getMyProfile() {
     .eq('id', user.id)
     .single();
   if (error) {
-    console.error('[profile] getMyProfile error:', error);
-    return null;
+    // Re-throw so callers can tell the difference between "profile not found"
+    // (null) and "could not reach Supabase" (throw).
+    throw error;
   }
   return data;
 }
