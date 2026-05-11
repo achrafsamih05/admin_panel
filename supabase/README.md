@@ -8,7 +8,13 @@
 Open the SQL editor in the Supabase dashboard and paste the contents of
 [`migrations/0001_init.sql`](./migrations/0001_init.sql), then **Run**.
 
-This creates:
+Then run [`migrations/0002_food_categories.sql`](./migrations/0002_food_categories.sql)
+to seed the food-oriented storefront categories (Breakfast, Lunch, Dinner,
+Desserts, Drinks, Snacks). It's idempotent — safe to re-run, and it
+automatically re-points any legacy-category products onto `lunch` before
+dropping the old rows.
+
+The first migration creates:
 - `profiles` (1:1 with `auth.users`, holds the shipping address)
 - `categories`, `products`
 - `orders`, `order_items`

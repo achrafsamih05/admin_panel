@@ -2,6 +2,7 @@
 // that checkout will read.
 import { supabase, requireAuth } from '../supabaseClient.js';
 import { getMyProfile, updateMyProfile } from '../profile.js';
+import { toastError, toastSuccess } from '../toast.js';
 
 const $ = (sel) => document.querySelector(sel);
 
@@ -39,6 +40,7 @@ async function init() {
     }
   } catch (e) {
     console.error('[profile] load failed', e);
+    toastError(`Couldn't load your profile: ${e.message || 'connection error'}`);
   }
 
   // Save changes
@@ -64,7 +66,7 @@ async function init() {
       btn.textContent = 'Saved ✓';
       setTimeout(() => { btn.classList.remove('btn-success'); btn.textContent = 'Save changes'; btn.disabled = false; }, 1400);
     } catch (err) {
-      alert(`Save failed: ${err.message}`);
+      toastError(`Save failed: ${err.message || 'connection error'}`);
       btn.disabled = false; btn.textContent = 'Save changes';
     }
   });

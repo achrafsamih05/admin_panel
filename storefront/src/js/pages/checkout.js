@@ -6,6 +6,7 @@
 import { supabase, requireAuth } from '../supabaseClient.js';
 import { getMyProfile, hasShippingAddress } from '../profile.js';
 import { cart } from '../cart.js';
+import { toastError } from '../toast.js';
 
 const $ = (sel) => document.querySelector(sel);
 
@@ -99,7 +100,19 @@ async function init() {
     return;
   }
 
-  const profile = await getMyProfile();
+  // Load the saved profile. Differentiate "DB error" from "no address yet".
+  let profile;
+  try {
+    profile = await getMyProfile();
+  } catch (err) {
+    console.error('[checkout] profile fetch failed:', err);
+    toastError(`Couldn't load your profile: ${err.message || 'connection error'}`);
+    $('#addressReady')?.classList.add('d-none');
+    $('#addressMissing')?.classList.remove('d-none');
+    form.querySelector('button[type=submit]').disabled = true;
+    renderOrderSummary();
+    return;
+  }
 
   // --- the critical guard: no address => send them to profile.html ---
   if (!hasShippingAddress(profile)) {
@@ -123,7 +136,7 @@ async function init() {
       window.location.replace(`order-confirmation.html?id=${order.id}`);
     } catch (err) {
       console.error(err);
-      alert(`Could not place the order: ${err.message}`);
+      toastError(`Could not place the order: ${err.message || 'connection error'}`);
       btn.disabled = false;
       btn.innerHTML = 'Place order';
     }
