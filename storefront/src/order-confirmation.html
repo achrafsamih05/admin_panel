@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Order placed — Estrave</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#E66239" />
+</head>
+<body>
+  <header class="store-header">
+    <div class="container py-3">
+      <a href="index.html" class="brand d-inline-flex align-items-center gap-2">
+        <span class="d-inline-flex align-items-center justify-content-center rounded-2"
+              style="width:32px;height:32px;background:var(--bs-primary);color:#fff;">
+          <i class="ti ti-shopping-bag"></i>
+        </span>
+        <span>Estrave</span>
+      </a>
+    </div>
+  </header>
+
+  <main class="container py-5" style="max-width: 560px;">
+    <div class="card">
+      <div class="card-body p-5 text-center">
+        <div class="d-inline-flex align-items-center justify-content-center rounded-circle mb-3"
+             style="width:64px;height:64px;background:rgba(0,201,81,.12);color:#00C951;">
+          <i class="ti ti-check fs-2"></i>
+        </div>
+        <h1 class="h4 mb-2">Thank you for your order</h1>
+        <p class="text-secondary mb-4">
+          Your order <span id="orderId" class="fw-semibold text-dark">…</span> has been placed.
+          We'll send a confirmation to your email shortly.
+        </p>
+        <div class="d-flex gap-2 justify-content-center">
+          <a href="index.html" class="btn btn-primary">Keep shopping</a>
+          <a href="profile.html" class="btn btn-outline-secondary">My account</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script type="module">
+    const id = new URLSearchParams(location.search).get('id');
+    const el = document.getElementById('orderId');
+    if (id && el) el.textContent = '#' + id.slice(0, 8);
+  </script>
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>

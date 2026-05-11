@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sign up — Estrave</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#E66239" />
+</head>
+<body>
+  <div class="auth-wrap">
+    <div class="card auth-card">
+      <div class="card-body p-4 p-md-5">
+        <div class="text-center mb-4">
+          <a href="index.html" class="d-inline-flex align-items-center gap-2 text-decoration-none">
+            <span class="d-inline-flex align-items-center justify-content-center rounded-2"
+                  style="width:36px;height:36px;background:var(--bs-primary);color:#fff;">
+              <i class="ti ti-shopping-bag fs-5"></i>
+            </span>
+            <span class="fw-semibold text-dark">Estrave</span>
+          </a>
+          <h1 class="h5 mt-3 mb-1">Create your account</h1>
+          <p class="text-secondary small mb-0">Shop faster next time.</p>
+        </div>
+
+        <div id="authAlert"></div>
+
+        <form id="signupForm" novalidate>
+          <div class="mb-3">
+            <label for="fullName" class="form-label">Full name</label>
+            <input id="fullName" type="text" class="form-control" required autocomplete="name">
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input id="email" type="email" class="form-control" required autocomplete="email">
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input id="password" type="password" class="form-control" required minlength="6"
+                   autocomplete="new-password">
+          </div>
+          <button class="btn btn-primary w-100" type="submit">Create account</button>
+        </form>
+
+        <div class="text-center mt-3 small text-secondary">
+          Already have an account? <a href="signin.html" class="link-primary">Sign in</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
