@@ -4,9 +4,16 @@
 import * as bootstrap from 'bootstrap';
 import './custom.js';
 
-
 // Import SCSS
 import '../scss/style.scss';
+
+// Page controllers. Each one self-gates to its own page by checking for a
+// unique DOM element, so importing them globally is safe and keeps the HTML
+// clean (no per-page <script> tags).
+import './pages/admin-auth.js';
+import './pages/inventory.js';
+import './pages/create-product.js';
+import './pages/setting.js';
 
 // src/assets/js/main.js
 

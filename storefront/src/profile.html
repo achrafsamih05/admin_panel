@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>My Account — Estrave</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#E66239" />
+</head>
+<body>
+
+  <header class="store-header">
+    <div class="container py-3">
+      <div class="d-flex align-items-center justify-content-between">
+        <a href="index.html" class="brand d-inline-flex align-items-center gap-2">
+          <span class="d-inline-flex align-items-center justify-content-center rounded-2"
+                style="width:32px;height:32px;background:var(--bs-primary);color:#fff;">
+            <i class="ti ti-shopping-bag"></i>
+          </span>
+          <span>Estrave</span>
+        </a>
+        <button id="signOutBtn" type="button" class="btn btn-outline-secondary btn-sm">
+          <i class="ti ti-logout me-1"></i>Sign out
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container py-4" style="max-width: 720px;">
+    <h1 class="h4 mb-1">My account</h1>
+    <p class="text-secondary mb-4" id="accountEmail">&nbsp;</p>
+
+    <div id="welcomeAlert" class="alert alert-success d-none" role="alert">
+      Welcome to Estrave! Fill in your shipping address so checkout can use it automatically.
+    </div>
+
+    <div class="card">
+      <div class="card-body p-4">
+        <h2 class="h6 fw-semibold mb-3">Profile</h2>
+        <form id="profileForm" novalidate>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label for="fullName" class="form-label">Full name</label>
+              <input id="fullName" name="full_name" type="text" class="form-control">
+            </div>
+            <div class="col-md-6">
+              <label for="phone" class="form-label">Phone</label>
+              <input id="phone" name="phone" type="tel" class="form-control" placeholder="+212 6 00 00 00 00">
+            </div>
+          </div>
+
+          <hr class="my-4">
+          <h2 class="h6 fw-semibold mb-1">Shipping address</h2>
+          <p class="text-secondary small mb-3">
+            This address is used automatically at checkout — you won't be asked again.
+          </p>
+
+          <div class="row g-3">
+            <div class="col-md-12">
+              <label for="address1" class="form-label">Address line 1</label>
+              <input id="address1" name="address_line1" type="text" class="form-control" required>
+            </div>
+            <div class="col-md-12">
+              <label for="address2" class="form-label">Address line 2 <span class="text-secondary">(optional)</span></label>
+              <input id="address2" name="address_line2" type="text" class="form-control">
+            </div>
+            <div class="col-md-6">
+              <label for="city" class="form-label">City</label>
+              <input id="city" name="city" type="text" class="form-control" required>
+            </div>
+            <div class="col-md-3">
+              <label for="state" class="form-label">State / Region</label>
+              <input id="state" name="state" type="text" class="form-control">
+            </div>
+            <div class="col-md-3">
+              <label for="zip" class="form-label">Zip code</label>
+              <input id="zip" name="zip_code" type="text" class="form-control">
+            </div>
+            <div class="col-md-6">
+              <label for="country" class="form-label">Country</label>
+              <input id="country" name="country" type="text" class="form-control" required>
+            </div>
+          </div>
+
+          <div class="d-flex gap-2 mt-4">
+            <button type="submit" class="btn btn-primary">Save changes</button>
+            <a href="index.html" class="btn btn-outline-secondary">Back to shop</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <a href="cart.html" class="cart-fab" aria-label="Open cart">
+    <i class="ti ti-shopping-cart"></i>
+    <span class="cart-badge" data-cart-count style="display:none;">0</span>
+  </a>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>

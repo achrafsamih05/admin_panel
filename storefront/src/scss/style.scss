@@ -1,0 +1,14 @@
+// Storefront SCSS entrypoint.
+// We *inherit* design tokens from the admin project so the two apps never
+// drift. If you change colors/fonts/spacing in the admin's _variables.scss,
+// the storefront picks them up on next build.
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import '@tabler/icons-webfont/dist/tabler-icons.min.css';
+
+// Bootstrap + shared variables
+@import 'bootstrap/scss/functions';
+@import '../../../src/assets/scss/variables';      // <— shared with admin panel
+@import 'bootstrap/scss/bootstrap';
+
+// Storefront-specific styles
+@import 'storefront';

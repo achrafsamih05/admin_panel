@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Checkout — Estrave</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#E66239" />
+</head>
+<body>
+
+  <header class="store-header">
+    <div class="container py-3">
+      <div class="d-flex align-items-center justify-content-between">
+        <a href="index.html" class="brand d-inline-flex align-items-center gap-2">
+          <span class="d-inline-flex align-items-center justify-content-center rounded-2"
+                style="width:32px;height:32px;background:var(--bs-primary);color:#fff;">
+            <i class="ti ti-shopping-bag"></i>
+          </span>
+          <span>Estrave</span>
+        </a>
+        <a href="cart.html" class="btn btn-outline-secondary btn-sm">
+          <i class="ti ti-arrow-left me-1"></i>Back to cart
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container py-4" style="max-width: 760px;">
+    <h1 class="h4 mb-4">Checkout</h1>
+
+    <form id="placeOrderForm" novalidate>
+      <!-- Shipping address (pulled from profile — NOT entered here) -->
+      <div class="card mb-3">
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-start mb-3">
+            <h2 class="h6 fw-semibold mb-0">
+              <i class="ti ti-truck me-2 text-primary"></i>Ship to
+            </h2>
+            <a href="profile.html" class="small link-primary">Edit address</a>
+          </div>
+
+          <!-- Shown when the profile has an address -->
+          <div id="addressReady">
+            <div id="shippingAddress" class="small text-secondary lh-lg"></div>
+          </div>
+
+          <!-- Shown when the user still needs to fill in their profile -->
+          <div id="addressMissing" class="d-none">
+            <div class="alert alert-warning mb-0">
+              <div class="fw-semibold mb-1">
+                <i class="ti ti-alert-triangle me-1"></i>Please add a shipping address
+              </div>
+              <p class="small mb-2">
+                We use the address saved in your profile — you won't have to enter it again next time.
+              </p>
+              <a href="profile.html" class="btn btn-primary btn-sm">Go to profile</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Order summary -->
+      <div class="card mb-3">
+        <div class="card-body">
+          <h2 class="h6 fw-semibold mb-3">
+            <i class="ti ti-receipt me-2 text-primary"></i>Order summary
+          </h2>
+          <ul id="summaryList" class="list-unstyled small mb-3"></ul>
+          <hr>
+          <div class="d-flex justify-content-between">
+            <span class="fw-semibold">Total</span>
+            <span id="summaryTotal" class="fw-bold text-primary">$0.00</span>
+          </div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100 btn-lg">Place order</button>
+      <p class="text-center text-secondary small mt-3 mb-0">
+        By placing this order, you agree to our terms of service.
+      </p>
+    </form>
+  </main>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>

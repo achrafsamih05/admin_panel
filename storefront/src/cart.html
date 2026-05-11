@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cart — Estrave</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#E66239" />
+</head>
+<body>
+
+  <header class="store-header">
+    <div class="container py-3">
+      <div class="d-flex align-items-center justify-content-between">
+        <a href="index.html" class="brand d-inline-flex align-items-center gap-2">
+          <span class="d-inline-flex align-items-center justify-content-center rounded-2"
+                style="width:32px;height:32px;background:var(--bs-primary);color:#fff;">
+            <i class="ti ti-shopping-bag"></i>
+          </span>
+          <span>Estrave</span>
+        </a>
+        <a href="index.html" class="btn btn-outline-secondary btn-sm">
+          <i class="ti ti-arrow-left me-1"></i>Continue shopping
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container py-4" style="max-width: 720px;">
+    <h1 class="h4 mb-4">Your cart</h1>
+
+    <!-- Empty state -->
+    <div id="cartEmpty" class="empty-state d-none">
+      <i class="ti ti-basket-off"></i>
+      <p class="mt-2 mb-3">Your cart is empty.</p>
+      <a href="index.html" class="btn btn-primary btn-sm">Browse products</a>
+    </div>
+
+    <!-- Line items -->
+    <div id="cartBody" class="card mb-3 d-none">
+      <ul id="cartList" class="list-group list-group-flush"></ul>
+    </div>
+
+    <!-- Summary card -->
+    <div id="cartSummary" class="card d-none">
+      <div class="card-body">
+        <div class="d-flex justify-content-between mb-2">
+          <span class="text-secondary">Subtotal</span>
+          <span id="cartSubtotal" class="fw-semibold">$0.00</span>
+        </div>
+        <div class="d-flex justify-content-between mb-3">
+          <span class="text-secondary">Shipping</span>
+          <span class="text-secondary">Calculated at checkout</span>
+        </div>
+        <a href="checkout.html" class="btn btn-primary w-100">
+          Checkout <i class="ti ti-arrow-right ms-1"></i>
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <a href="cart.html" class="cart-fab" aria-label="Cart">
+    <i class="ti ti-shopping-cart"></i>
+    <span class="cart-badge" data-cart-count style="display:none;">0</span>
+  </a>
+
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
